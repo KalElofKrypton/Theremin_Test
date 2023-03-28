@@ -1,0 +1,20 @@
+<button>
+  click me
+</button>
+
+<script>
+	const ctx = new window.AudioContext()
+  const btn = document.querySelector('button')
+  
+  function play() {
+    const osc = ctx.createOscillator()
+    osc.type = 'sine'
+    osc.frequency.value = 40
+    osc.connect(ctx.destination)
+    osc.start(ctx.currentTime)
+    osc.stop(ctx.currentTime + 1)
+    
+  }
+  
+  btn.addEventListener('click',play)
+</script>
